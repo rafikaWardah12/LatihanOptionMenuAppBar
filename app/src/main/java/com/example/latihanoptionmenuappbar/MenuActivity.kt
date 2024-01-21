@@ -13,16 +13,17 @@ class MenuActivity : AppCompatActivity() {
         binding = ActivityMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        with(binding) {
-            searchView.setupWithSearchBar(searchBar)
-            searchView
-                .editText
-                .setOnEditorActionListener { textView, actionId, event ->
-                    searchBar.text = searchView.text
-                    searchView.hide()
-                    Toast.makeText(this@MenuActivity, searchView.text, Toast.LENGTH_SHORT).show()
-                    false
-                }
-        }
+        val searchBar = binding.searchBar
+        val searchView = binding.searchView
+
+        searchView.setupWithSearchBar(searchBar)
+        searchView
+            .editText
+            .setOnEditorActionListener { textView, actionId, event ->
+                searchBar.text = searchView.text
+                searchView.hide()
+                Toast.makeText(this@MenuActivity, searchView.text, Toast.LENGTH_SHORT).show()
+                false
+            }
     }
 }
